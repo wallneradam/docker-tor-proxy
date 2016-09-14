@@ -6,7 +6,7 @@ It changes IP address in every minutes by default. If you want to change this be
 
 ```
 docker run -d -e IP_CHANGE_INTERVAL=120 -p 8888:8888 -p pickapp/tor-proxy
-curl --proxy localhost:8888 https://www.google.com
+curl --proxy localhost:8888 http://ipecho.net/
 ```
 
 And that's it!
