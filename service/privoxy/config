@@ -1,0 +1,12 @@
+listen-address 0.0.0.0:8888
+forward-socks5t / localhost:9050 .
+logdir /var/log/privoxy
+logfile logfile
+forwarded-connect-retries 1
+keep-alive-timeout 30
+socket-timeout 30
+
+debug 1
+debug 1024
+debug 4096
+debug 8192

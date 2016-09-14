@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -z ${IP_CHANGE_INTERVAL+x} ]; then IP_CHANGE_INTERVAL=60; fi
+
+(while true; do sleep ${IP_CHANGE_INTERVAL}; killall -HUP tor; done) &
+
+exec /bin/su -s /bin/sh -c "/usr/bin/tor -f /opt/tor/torrc" tor
