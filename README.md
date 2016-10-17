@@ -1,6 +1,6 @@
 # docker-tor-proxy
 
-A small (~15 MB) docker image with Tor and Privoxy based on Alpine Linux.
+A docker image with Tor and Privoxy based on Alpine Linux. Now it has Squid as well for caching requests.
 
 It changes IP address in every minutes by default. If you want to change this behaviour, you can specify the IP_CHANGE_INTERVAL environment variable.
 

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Logging
+tail -F /var/log/squid/cache.log 2>/dev/null &
+tail -F /var/log/squid/access.log 2>/dev/null &
+
+# Create cache directories
+echo "Initializing Squid cache..."
+squid -Nz -f /opt/squid/squid.conf
+
+# Rotate logs ~horly
+(while true; do sleep 3600; squid -k rotate; done) &
+
+# Start squid in the background
+exec squid -YFCN -f /opt/squid/squid.conf

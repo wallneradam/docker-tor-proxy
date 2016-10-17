@@ -1,9 +1,12 @@
 FROM alpine:edge
 
+RUN apk --update add squid tor privoxy && rm -rf /var/cache/apk/* && \
+    ln -sf /dev/stdout /var/log/privoxy/logfile && \
+    chown -R squid:squid /var/cache/squid && \
+    chown -R squid:squid /var/log/squid
+
 COPY service /opt/
-RUN apk --update add privoxy tor runit && rm -rf /var/cache/apk/* && \
-    ln -sf /dev/stdout /var/log/privoxy/logfile
 
 EXPOSE 8888
 
-CMD ["runsvdir", "/opt"]
+CMD ["/bin/sh", "/opt/start.sh"]
