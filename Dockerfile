@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:latest
 
 RUN apk --update add squid tor privoxy && rm -rf /var/cache/apk/* && \
     ln -sf /dev/stdout /var/log/privoxy/logfile && \
