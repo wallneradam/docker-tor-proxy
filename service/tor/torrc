@@ -7,8 +7,8 @@
 # "Application Data\tor\torrc" or "Application Data\<username>\tor\torrc"
 
 ## Replace this with "SocksPort 0" if you don't want clients to connect.
-SocksPort 9050 # what port to advertise for application connections
-SocksBindAddress 127.0.0.1 # accept connections only from localhost
+#SocksPort 9050 # what port to advertise for application connections
+SocksPort 127.0.0.1:9050 # accept connections only from localhost
 
 ## Entry policies to allow/deny SOCKS requests based on IP address.
 ## First entry that matches wins. If no SocksPolicy is set, we accept
@@ -19,7 +19,7 @@ SocksBindAddress 127.0.0.1 # accept connections only from localhost
 ## Allow no-name routers (ones that the dirserver operators don't
 ## know anything about) in only these positions in your circuits.
 ## Other choices (not advised) are entry,exit,introduction.
-AllowUnverifiedNodes middle,rendezvous
+#AllowUnverifiedNodes middle,rendezvous
 
 ## Logs go to stdout at level "notice" unless redirected by something
 ## else, like one of the below lines. You can have as many log lines as
