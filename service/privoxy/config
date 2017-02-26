@@ -1,5 +1,6 @@
 listen-address 0.0.0.0:8118
 forward-socks5t / localhost:9050 .
+templdir /etc/privoxy/templates
 logdir /var/log/privoxy
 logfile logfile
 forwarded-connect-retries 1
