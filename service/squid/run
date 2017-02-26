@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Remove possible pid
+rm /var/run/squid.pid 2>/dev/null
+
 # Logging
 tail -F /var/log/squid/cache.log 2>/dev/null &
 tail -F /var/log/squid/access.log 2>/dev/null &
