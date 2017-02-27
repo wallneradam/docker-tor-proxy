@@ -4,14 +4,14 @@
 #  http://wiki.squid-cache.org/Features/Redirectors
 
 SED=''
-
-# Read SED data from config
 . /opt/squid/rewriter.conf
 
 while IFS= read -r line; do
-    line_out=`echo "$line" | cut -f 1 -d " " | sed "${SED}"`
+    line=`echo "$line" | cut -f 1 -d " "`
+    line_out=`echo "$line" | sed "${SED}"`
     if [ "$line" != "$line_out" ]; then
         echo "$line_out"
+        echo "Redirecting $line --> $line_out" >&2
     else
         echo ""
     fi
